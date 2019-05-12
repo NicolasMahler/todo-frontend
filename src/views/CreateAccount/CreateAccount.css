@@ -1,0 +1,65 @@
+.create-account__center {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.create-account__card {
+    height: 350px;
+    margin-top: 150px;
+    position: relative;
+    width: 700px;
+    position: relative;
+    border-radius: 8px;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.create-account__title {
+    text-align: center;
+    margin: 0 auto 25px;
+    color: var(--text-blue);
+}
+
+.create-account__sign-in {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none;
+}
+
+.create-account__sign-in:focus, .create-account__sign-in:visited {
+    text-decoration: none;
+}
+
+.create-account__button {
+    background-color: var(--primary-light);
+    color: white;
+    border: 0;
+    border-radius: 500px;
+    cursor: pointer;
+    padding: 5px 15px;
+    margin: 15px auto 0;
+    transition: all 0.4s;
+}
+
+.create-account__button:disabled {
+    background-color: lightgray;
+    cursor: auto;
+    z-index: 1;
+}
+
+.create-account__button:enabled {
+    transform: scale(1.05);
+}
+
+.create-account__button:enabled:hover {
+    box-shadow: 3px 3px 6px rgba(148, 148, 148, 0.966);
+    background-color: var(--primary);
+}
+
+.create-account__buton:active {
+    box-shadow: 1px 1px 3px rgba(148, 148, 148, 0.966);
+    background-color: var(--primary);
+}

@@ -1,0 +1,22 @@
+.home__category-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* .home__container::after {
+    content: '';
+    background: #12c2e9;
+    background: -webkit-linear-gradient(to top left, #FF81A9, #f64f59, #c471ed, #12c2e9, #FFC466);
+    background: linear-gradient(to top left,#FF81A9, #f64f59, #c471ed, #12c2e9, #FFC466);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 900;
+} */

@@ -1,12 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+//redux
+import { Provider } from 'react-redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import ReduxThunk from 'redux-thunk';
+
+//styles
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './global.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//views
+import SignIn from './views/SignIn/SignIn';
+import Home from './views/Home/Home';
+import NoMatch from './views/NoMatch/NoMatch';
+import CreateAccount from './views/CreateAccount/CreateAccount';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//reducers
+import userReducer from './store/User/reducer';
+import todoReducer from './store/ToDos/reducer';
+
+//router
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+const reducers = combineReducers({userReducer, todoReducer});
+const store = createStore(reducers, applyMiddleware(ReduxThunk));
+
+ReactDOM.render(
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/" component={SignIn} />
+                    <Route path="/sign-in" component={SignIn} />
+                    <Route path="/create-an-account" component={CreateAccount} />
+                    <Route path="/home" component={Home} />
+                    <Route component={NoMatch} />
+                </Switch>
+            </BrowserRouter>
+        </Provider>, 
+    document.getElementById('root'));

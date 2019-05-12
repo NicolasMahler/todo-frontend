@@ -1,0 +1,5 @@
+export const LOGIN = "LOGIN";
+export const CREATE_USER = "CREATE_USER";
+export const USER_LOADING = "USER_LOADING";
+export const USER_DONE_LOADING = "USER_DONE_LOADING";
+export const USER_ERROR_LOADIONG = "USER_ERROR_LOADING";

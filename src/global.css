@@ -1,0 +1,123 @@
+:root {
+    --text-blue: black;
+    --primary: black;
+    --primary-light: rgb(59, 59, 59);
+    --primary-dark: black;
+    --yellow: #FFC466;
+    --red: #F9623E;
+    --pink: #FF81A9;
+    --teal: #6ecfbc; 
+    --text: #000000;
+    --text-gray: rgb(59, 59, 59);
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* #root:after {
+    content: '';
+    background: #12c2e9;
+    background: -webkit-linear-gradient(to top left, #FFC466, #f64f59, #c471ed, #6ecfbc);
+    background: linear-gradient(to top left, #FFC466, #f64f59, #c471ed, #6ecfbc);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: screen;
+    pointer-events: none;
+} */
+
+.global__card {
+    background-color: transparent;
+    padding: 50px;
+    border-radius: 8px;
+    transition: box-shadow 0.4s;
+}
+
+.global__card:hover, .global__card:focus-within {
+    -webkit-box-shadow: 10px 10px 25px 2px rgba(0,0,0,0.37);
+    -moz-box-shadow: 10px 10px 25px 2px rgba(0,0,0,0.37);
+    box-shadow: 10px 10px 25px 2px rgba(0, 0, 0, 0.37);
+    background-color: white;
+}
+
+.global__button--primary-dark {
+    background-color: var(--primary-dark);
+    color: white;
+    border: 0;
+    border-radius: 500px;
+    cursor: pointer;
+    padding: 5px 15px;
+    margin: 15px auto 0;
+    transition: all 0.4s;
+}
+
+.global__hoverButton--primary {
+    color: var(--primary);
+    background-color: transparent;
+    padding: 10px;
+    transition: 0.4s all;
+    border-radius: 8px;
+}
+
+.global__hoverButton--primary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.global__hoverButton--primaryDark {
+    color: var(--primary-dark);
+    background-color: transparent;
+    padding: 10px;
+    transition: 0.4s all;
+    border-radius: 8px;
+}
+
+.global__hoverButton--primaryDark:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+
+.global__hoverButton--primaryLight {
+    color: var(--primary-light);
+    background-color: transparent;
+    padding: 10px;
+    transition: 0.4s all;
+    border-radius: 8px;
+}
+
+.global__hoverButton--primaryight:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+.global__hoverButton--secondary {
+    color: var(--text-gray);
+    background-color: transparent;
+    padding: 10px;
+    transition: 0.4s all;
+    border-radius: 8px;
+    border: 0;
+}
+
+.global__hoverButton--secondary:hover {
+    background: var(--text-gray);
+    color: white;
+}
+
+.global__hoverButton--secondaryDark {
+    color: var(--text-gray);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.45s all;
+}
+
+.global__hoverButton--secondaryDark:hover {
+    background: var(--secondary-dark);
+    color: white;
+}

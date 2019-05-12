@@ -1,0 +1,101 @@
+.sign-in__card {
+    height: 350px;
+    margin-top: 150px;
+    position: relative;
+    width: 450px;
+    position: relative;
+    border-radius: 8px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.sign-in__card img {
+    width: 75px;
+    height: auto;
+    background-color: white;
+}
+
+.sign-in__center {
+    margin: 0 auto 25px auto;
+}
+
+.sign-in__title--container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sign-in__title {
+    color: var(--primary);
+    margin: 0 ;
+}
+
+.sign-in__title.error {
+    color: var(--text);
+    margin: 0 auto 10px;
+}
+
+.sign-in__button {
+    background-color: var(--primary-light);
+    color: white;
+    border: 0;
+    border-radius: 500px;
+    cursor: pointer;
+    padding: 5px 15px;
+    margin: 15px auto 0;
+    transition: all 0.4s;
+}
+
+.sign-in__button:disabled {
+    background-color: lightgray;
+    cursor: auto;
+    z-index: 1;
+}
+
+.sign-in__button:enabled {
+    transform: scale(1.05);
+}
+
+.sign-in__button:enabled:hover {
+    box-shadow: 3px 3px 6px rgba(148, 148, 148, 0.966);
+    background-color: var(--primary);
+}
+
+.sign-in__buton:active {
+    box-shadow: 1px 1px 3px rgba(148, 148, 148, 0.966);
+    background-color: var(--primary);
+}
+
+#sign-in-form {
+    transition: transform .5s ease-in-out, box-shadow .5s, opacity .5s ease-in;
+}
+
+#sign-in-form.loading {
+    box-shadow: 1px 1px 15px rgba(148, 148, 148, 0.966);
+    transform: translateX(-450px);
+    opacity: 0;
+}
+
+.sign-in__error-message {
+    color: red;
+    width: 75%;
+    text-align: center;
+    margin: 0 auto 20px auto;
+}
+
+.sign-in__create-account-container {
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+    text-align: right;
+}
+
+.sign-in__create-account {
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.sign-in__create-account:hover {
+    text-decoration: none;
+}
