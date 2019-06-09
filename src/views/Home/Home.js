@@ -5,6 +5,8 @@ import './Home.css';
 import CategoryWrapper from '../Category/CategoryWrapper';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import AddMenu from '../../component/addMenu/AddMenu';
+import InputText from '../../component/InputText/InputText';
+import ToDoList from '../../component/ToDoList/ToDoList';
 
 class Home extends Component {
     constructor() {
@@ -17,10 +19,6 @@ class Home extends Component {
         this.createToDo = this.createToDo.bind(this);
     }
 
-    componentDidMount() {
-        this.props.getTodos(this.props.user.token);
-    }
-
     toDo(e) {
         this.setState({
             todo: e.target.value
@@ -31,25 +29,15 @@ class Home extends Component {
         this.props.createToDo(this.props.user.token, this.state.todo);
     }
 
-    visibleCategory() {
-        
-    }
-
     render() {
         return (
             <React.Fragment>
             <div className="container home__container">
+            <p>{this.props.user.first_name}</p>
             <AddMenu />
-                <p>{this.props.user.firstName} {this.props.user.lastName}</p>
-                {/* {this.props.todos.map(todo => 
-                    (<div key={todo.id}>
-                        <input type="checkbox" defaultChecked={todo.completed}></input> 
-                        <p style={{display: 'inline'}}>{todo.todo}</p>
-                        <button type="button" onClick={() => this.props.deleteToDo(this.props.user.token, todo.id)}>delete</button>
-                    </div>)
-                )}
+            <ToDoList todos={this.props.todos} />
                 <InputText label="ToDo" onChange={this.toDo} />
-                <button type="button" onClick={this.createToDo}>Create</button> */}
+                <button type="button" onClick={this.createToDo}>Create</button>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
