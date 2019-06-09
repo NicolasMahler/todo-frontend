@@ -2,6 +2,7 @@ import * as functions from './function';
 import * as queries from '../../constants/queries';
 
 export default class ToDoStore {
+    
     static getTodos(token) {
         return dispatch => {
             dispatch(functions.todoLoading());
