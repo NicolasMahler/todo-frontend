@@ -1,12 +1,14 @@
 :root {
     --text-blue: black;
-    --primary: black;
-    --primary-light: rgb(59, 59, 59);
-    --primary-dark: black;
-    --yellow: #FFC466;
-    --red: #F9623E;
+    --primary: #BB4430;
+    --primary-light: #d9624e;
+    --primary-dark: #9d2612;
+    --brown: #231F20;
+    --beige: #EFE6DD;
+    --yellow: #F3DFA2;
+    --red: #BB4430;
     --pink: #FF81A9;
-    --teal: #6ecfbc; 
+    --teal: #7EBDC2; 
     --text: #000000;
     --text-gray: rgb(59, 59, 59);
 }
@@ -17,31 +19,17 @@
     overflow: hidden;
 }
 
-/* #root:after {
-    content: '';
-    background: #12c2e9;
-    background: -webkit-linear-gradient(to top left, #FFC466, #f64f59, #c471ed, #6ecfbc);
-    background: linear-gradient(to top left, #FFC466, #f64f59, #c471ed, #6ecfbc);
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    mix-blend-mode: screen;
-    pointer-events: none;
-} */
-
 .global__card {
-    background-color: transparent;
+    background-color: white;
     padding: 50px;
     border-radius: 8px;
     transition: box-shadow 0.4s;
 }
 
 .global__card:hover, .global__card:focus-within {
-    -webkit-box-shadow: 10px 10px 25px 2px rgba(0,0,0,0.37);
-    -moz-box-shadow: 10px 10px 25px 2px rgba(0,0,0,0.37);
-    box-shadow: 10px 10px 25px 2px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 10px 10px 5px 25px rgba(0,0,0,0.37);
+    -moz-box-shadow: 10px 10px 5px 2px rgba(0,0,0,0.37);
+    box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.37);
     background-color: white;
 }
 
@@ -105,7 +93,7 @@
 }
 
 .global__hoverButton--secondary:hover {
-    background: var(--text-gray);
+    background: var(--primary-light);
     color: white;
 }
 
