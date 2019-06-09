@@ -22,7 +22,7 @@ h1 {
 
 .menu-item,
 .menu-open-button {
-      background:black;
+      background:var(--red);
       border-radius: 100%;
       width: 80px;
       height: 80px;
