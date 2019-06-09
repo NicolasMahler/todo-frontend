@@ -11,6 +11,7 @@ export default class UserStore {
                 if (!response.data.errors) {
                     let user = response.data.login.user;
                     user.token = response.data.login.token;
+                    localStorage.setItem('token', user.token);
                     dispatch(functions.userDoneLoading());
                     dispatch(functions.login(user));
                 } else {
