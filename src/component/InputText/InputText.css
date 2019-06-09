@@ -25,6 +25,10 @@
     transition: 0.3s all;
 }
 
+.input-text__container:hover .input-text__input {
+    border-bottom: 1px solid var(--red);
+}
+
 .input-text__input:placeholder-shown {
     z-index: 50;
 }
@@ -43,12 +47,13 @@
 
 .input-text__container:hover::after {
     width: 250px;
-    background-color: gray;
+    background-color: var(--red);
 }
 
 .input-text__container:focus-within::after, .input-text__container:focus-within:hover::after, .input-text__container:valid:hover::after {
     width: 250px;
-    background-color:var(--primary-light);
+    color: red;
+    background-color:var(--red);
 }
 
 .input-text__underline {
@@ -65,16 +70,16 @@
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
     transform: scale(0.8);
-    color: var(--primary-light);
+    color: var(--red);
 }
 
 .input-text__label__active ~ .input-text__underline {
     width: 250px;
-    background-color:var(--primary-light);
+    background-color:var(--red);
     top: 3px;
 }
 
 .input-text__label__active + .input-text__input {
-    border-bottom: 1px solid var(--primary-light);
+    border-bottom: 1px solid var(--red);
 }
 
