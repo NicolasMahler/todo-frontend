@@ -7,7 +7,7 @@ const ToDo = ({todo}) => {
     })
 
     return (
-        <
+        <p>hello</p>
     )
 
 }
