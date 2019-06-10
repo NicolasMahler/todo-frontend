@@ -60,6 +60,19 @@ export const DELETE_TODO = (id) => {
     }`
 }
 
+export const UPDATE_TODO = (todo) => {
+    return `mutataion {
+        updateToDo(id: "${todo.id}", data: {
+            todo: "${todo.todo}",
+            completed: "${todo.completed}"
+        }) {
+            id,
+            todo,
+            completed
+        }
+    }`
+}
+
 // FETCHES //
 export const NO_TOKEN_QUERY = async (query) => {
     let response = await fetch("https://limitless-waters-16319.herokuapp.com/", {
