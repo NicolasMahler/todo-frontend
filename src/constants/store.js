@@ -1,4 +1,4 @@
-export let store = function() {
+export const store = function() {
     let user = {
         firstName: '',
         lastName: '',
@@ -21,9 +21,10 @@ export let store = function() {
                 user.lastName = lastName;
             }
         },
+
         getUser: function() {
             return user;
         }
     }
-}();
+}
 

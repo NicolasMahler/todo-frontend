@@ -33,9 +33,9 @@ class Home extends Component {
         return (
             <React.Fragment>
             <div className="container home__container">
-            <p>{this.props.user.first_name}</p>
-            <AddMenu />
-            <ToDoList todos={this.props.todos} />
+                <p>{this.props.user.first_name}</p>
+                {/* <AddMenu /> */}
+                <ToDoList />
                 <InputText label="ToDo" onChange={this.toDo} />
                 <button type="button" onClick={this.createToDo}>Create</button>
             </div>
@@ -64,7 +64,6 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-        todos: state.todoReducer.todos,
         user: state.userReducer.user,
     }
 }

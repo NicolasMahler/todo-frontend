@@ -54,4 +54,10 @@ export default class ToDoStore {
             })
         }
     }
+
+    static editToDo(token, todo) {
+        return dispatch => {
+            queries.TOKEN_QUERY(queries.UPDATE_TODO(todo))
+        }
+    }
 }
