@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 //redux
 import { Provider } from 'react-redux'
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import ReduxThunk from 'redux-thunk';
 
 //styles
@@ -24,7 +24,7 @@ import todoReducer from './store/ToDos/reducer';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const reducers = combineReducers({userReducer, todoReducer});
-const store = createStore(reducers, applyMiddleware(ReduxThunk));
+const store = createStore(reducers, compose(applyMiddleware(ReduxThunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 ReactDOM.render(
         <Provider store={store}>
