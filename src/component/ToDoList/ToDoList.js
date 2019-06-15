@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ToDoContainer from './ToDo/ToDoContainer';
 import { connect } from 'react-redux';
 import ToDoStore from '../../store/ToDos/ToDoStore';
+import { TransitionGroup } from 'react-transition-group';
 
 const ToDoList = ({getTodos, todos}) => {
     
@@ -10,9 +11,9 @@ const ToDoList = ({getTodos, todos}) => {
     }, []);
 
     return (
-        <React.Fragment>
+        <TransitionGroup>
             {todos.map(todo => (<ToDoContainer key={todo.id} todo={todo} />))}
-        </React.Fragment>
+        </TransitionGroup>
     );
 
 }
