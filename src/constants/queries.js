@@ -1,4 +1,6 @@
-import { stringify } from './utils';
+import {
+    stringify
+} from './utils';
 
 // QUERIES //
 export const TOP_LEVEL_TODOS = (first = null, skip = null, after = null, orderBy = "createdAt_DESC") => {
@@ -11,7 +13,7 @@ export const TOP_LEVEL_TODOS = (first = null, skip = null, after = null, orderBy
         todo,
         id
     } }`
-} 
+}
 
 // MUTATIONS //
 export const LOGIN_QUERY = (email, password) => {
@@ -61,16 +63,27 @@ export const DELETE_TODO = (id) => {
 }
 
 export const UPDATE_TODO = (todo) => {
-    return `mutataion {
-        updateToDo(id: "${todo.id}", data: {
+    return todo.todo ?
+    `mutation {
+    updateToDo(id: "${todo.id}", data: {
             todo: "${todo.todo}",
-            completed: "${todo.completed}"
+            completed: ${todo.completed}
+        }) {
+            id,
+            todo,
+            completed
+        }
+    }` :
+    `mutation {
+    updateToDo(id: "${todo.id}", data: {
+            completed: ${todo.completed}
         }) {
             id,
             todo,
             completed
         }
     }`
+
 }
 
 // FETCHES //
