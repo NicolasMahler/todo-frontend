@@ -20,16 +20,24 @@ const ToDoContainer = ({todo, saveToDo, deleteToDo}) => {
         setTransition(true);
     }, [])
 
-const ToDoContainer = ({todo, key}) => {
+    function onChange(todo, completed, id) {
+        saveToDo(token, {todo, completed, id});
+    }
+    
+    function onDelete(id) {
+        deleteToDo(token, id);
+    }
 
-    function onChange(event) {
-        console.log(event)
+    function onComplete(id, completed) {
+        saveToDo(token, { id, completed })
     }
 
     return (
-        <React.Fragment>
-            <ToDo key={key} todo={todo} onChange={onChange} />
-        </React.Fragment>
+        <Transition in={transition} timeout={0}>
+            {state => (
+                <ToDo todo={todo} onCompleted={onComplete} onDelete={onDelete} onChange={onChange} style={{...transitionStyles[state]}} />
+            )}
+        </Transition>
     )
 
 };
