@@ -51,7 +51,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        saveToDo: (todo) => dispatch(ToDoStore.updateTodo(todo))
+        saveToDo: (token, todo) => dispatch(ToDoStore.editToDo(token, todo)),
+        deleteToDo: (token, id) => dispatch(ToDoStore.deleteToDo(token, id))
     }
 }
 
