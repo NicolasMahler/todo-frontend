@@ -1,9 +1,13 @@
 
 .todo__container {
+    display: flex;
+    justify-content: center;
     margin-bottom: 15px;
+    transition: 01s opacity;
 }
 
 .todo__label {
+    padding: 0 5px;
     font-size: 32px;
     color: var(--red);
     cursor: pointer;
@@ -12,6 +16,7 @@
 
 #completed:checked+.todo__label {
     color: green;
+    padding: 0 2px;
 }
 
 .todo__label:hover {
