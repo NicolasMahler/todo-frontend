@@ -29,3 +29,6 @@ export function createToDo(todo) {
 export function deleteToDo(id) {
     return { type: actions.DELETE_TODO, id }
 }
+export function updateToDo(todo) {
+    return { type: actions.UPDATE_TODO, todo }
+}

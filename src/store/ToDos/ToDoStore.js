@@ -56,8 +56,19 @@ export default class ToDoStore {
     }
 
     static editToDo(token, todo) {
+        console.log(todo);
         return dispatch => {
-            queries.TOKEN_QUERY(queries.UPDATE_TODO(todo))
+            queries.TOKEN_QUERY(queries.UPDATE_TODO(todo), token)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                if (!response.data.errors) {
+                    dispatch(functions.updateToDo(response.data.updateToDo));
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
         }
     }
 }

@@ -9,3 +9,4 @@ export const CREATE_ERROR_LOADING = 'CRATE_ERROR_LOADING';
 export const CREATE_TODO = 'CREATE_TODO';
 
 export const DELETE_TODO = 'DELETE_TODO';
+export const UPDATE_TODO = 'UPDATE_TODO';

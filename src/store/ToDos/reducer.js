@@ -61,10 +61,23 @@ export default function todoReducer(state = initState, action) {
             let deleteToDos = state.todos.filter(todo => {
                 return action.id.id !== todo.id
             });
-            console.log(deleteToDos);
+
             return {
                 ...state,
                 todos: deleteToDos
+            }
+        case (actions.UPDATE_TODO):
+            let updatedList = state.todos.map(todo => {
+                if (todo.id === action.todo.id) {
+                    todo.todo = action.todo.todo;
+                    todo.completed = action.todo.completed;
+                }
+                return todo;
+            });
+
+            return {
+                ...state,
+                todos: updatedList
             }
         default:
             return state;
