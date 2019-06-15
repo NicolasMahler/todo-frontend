@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ToDo.css';
 
-function ToDo({todo, onChange, onDelete}) {
+function ToDo({todo, onChange, onDelete, style, onCompleted}) {
 
     const [text, setText] = useState(todo.todo);
     const [completed, setCompleted] = useState(todo.completed);
@@ -9,6 +9,7 @@ function ToDo({todo, onChange, onDelete}) {
 
     const completedChange = (event) => {
         setCompleted(event.target.checked);
+        onCompleted(todo.id, event.target.checked);
     }
 
     const textOnChange = (event) => {
@@ -17,13 +18,13 @@ function ToDo({todo, onChange, onDelete}) {
 
     const editOnChange = (event) => {
         if (!event.target.checked) {
-            onChange(event);
+            onChange(text, completed, todo.id);
         }
         setEdit(event.target.checked);
     }
 
     return (
-        <form className="todo__container">
+        <form className="todo__container" style={style}>
             <input type="checkbox" name="completed" id="completed" onChange={completedChange} value={completed} hidden />
             {completed ?
                 <label htmlFor="completed" className="todo__label"><i className="fa fa-check"></i></label> :
