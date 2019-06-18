@@ -7,7 +7,7 @@ function ToDo({todo, onChange, onDelete, style, onCompleted}) {
     const [completed, setCompleted] = useState(todo.completed);
     const [edit, setEdit] = useState(false);
 
-    const completedChange = (event) => {
+    const completedOnChange = (event) => {
         setCompleted(event.target.checked);
         onCompleted(todo.id, event.target.checked);
     }
@@ -25,7 +25,7 @@ function ToDo({todo, onChange, onDelete, style, onCompleted}) {
 
     return (
         <form className="todo__container" style={style}>
-            <input type="checkbox" name="completed" id="completed" onChange={completedChange} value={completed} hidden />
+            <input type="checkbox" name="completed" id="completed" onChange={completedOnChange} value={completed} hidden />
             {completed ?
                 <label htmlFor="completed" className="todo__label"><i className="fa fa-check"></i></label> :
                 <label htmlFor="completed" className="todo__label"><i className="fa fa-times"></i></label>
