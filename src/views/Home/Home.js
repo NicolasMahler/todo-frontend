@@ -33,11 +33,12 @@ class Home extends Component {
         return (
             <React.Fragment>
             <div className="container home__container">
-                <p>{this.props.user.first_name}</p>
                 {/* <AddMenu /> */}
                 <ToDoList />
+                <div style={{display: 'flex', justifyContent: 'center'}}>
                 <InputText label="ToDo" onChange={this.toDo} />
                 <button type="button" onClick={this.createToDo}>Create</button>
+                </div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
