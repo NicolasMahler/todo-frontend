@@ -18,7 +18,7 @@ const ToDoContainer = ({todo, saveToDo, deleteToDo}) => {
 
     useEffect(() => {
         setTransition(true);
-    }, [])
+    }, []);
 
     function onChange(todo, completed, id) {
         saveToDo(token, {todo, completed, id});
@@ -28,14 +28,14 @@ const ToDoContainer = ({todo, saveToDo, deleteToDo}) => {
         deleteToDo(token, id);
     }
 
-    function onComplete(id, completed) {
-        saveToDo(token, { id, completed })
+    function onCompleted(id, completed) {
+        saveToDo(token, { id, completed });
     }
 
     return (
         <Transition in={transition} timeout={0}>
             {state => (
-                <ToDo todo={todo} onCompleted={onComplete} onDelete={onDelete} onChange={onChange} style={{...transitionStyles[state]}} />
+                <ToDo todo={todo} onCompleted={onCompleted} onDelete={onDelete} onChange={onChange} style={{...transitionStyles[state]}} />
             )}
         </Transition>
     )
