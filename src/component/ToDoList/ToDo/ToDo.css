@@ -30,6 +30,10 @@
     border: 0;
 }
 
+#completed:checked~.todo__textInput {
+    text-decoration: line-through;
+}
+
 .todo__textInput::after {
     content: '';
     position: absolute;
