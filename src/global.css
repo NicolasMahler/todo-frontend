@@ -22,8 +22,8 @@
 .global__card {
     background-color: white;
     padding: 50px;
-    border-radius: 8px;
     transition: box-shadow 0.4s;
+    max-width: 100vw;
 }
 
 .global__card:hover, .global__card:focus-within {
