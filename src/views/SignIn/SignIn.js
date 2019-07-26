@@ -57,6 +57,12 @@ class SignIn extends Component {
         }
     }
 
+    submitLogin = (event) => {
+        if (this.state.clickAllowed && event.key === "Enter") {
+            this.props.login(this.state.email, this.state.password);
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.isLoading) {
             this.setState({
@@ -71,62 +77,64 @@ class SignIn extends Component {
 
     render() {
         return (
-            <div className="container">
-                {this.props.user.token ? <Redirect push to="/home" /> : null}
-                {this.state.createAccount ? <Redirect push to="/create-an-account" /> : null }
-                <Transition in={this.props.isLoading} timeout={0} appear={true}>
-                    { state => (
-                        <Spinner transitionStyles={transitionStyles} state={state} />
-                    )}
-                </Transition>
-                <div className="row">
-                    <Transition in={this.state.display} timeout={0} appear={true}>
-                    {state => (
-                        <form id="sign-in-form" className="container global__card sign-in__card" style={{
-                                ...transitionStyles[state]
-                            }}>
-                                <div className="container">
-                                    <section className="row sign-in__center sign-in__title--container">
-                                        <h3 className={this.props.isError ? "sign-in__title error" : "sign-in__title"}>To Do</h3>
-                                    </section>
-                                    {this.props.isError ? (
-                                        <section className="row">
-                                            <p className="sign-in__error-message">{this.props.errorMessage}</p>
-                                        </section>) : 
-                                    null}
-                                    <section className="row">
-                                        <div className="sign-in__center">
-                                            <InputText label="email" onChange={this.onEmail} />
-                                        </div>
-                                    </section>
-                                    <section className="row">
-                                        <div className="sign-in__center">
-                                            <InputText label="password" onChange={this.onPassWord} password/>
-                                        </div>
-                                    </section>
-                                    <section className="row">
-                                    {this.state.clickAllowed ? (
-                                        <button className="sign-in__button" type="button" onClick={() => this.props.login(this.state.email, this.state.password)}>Sign In</button>
-                                    ) : (
-                                        <button className="sign-in__button" type="button" disabled>Sign In</button>
-                                    )}
-                                    </section>
-                                </div>
-                                <section className="sign-in__create-account-container">
-                                    <button onClick={() => {
-                                        this.setState({
-                                            display: false
-                                        }, () => {
-                                            setTimeout(() => {
-                                                this.setState({
-                                                    createAccount: true
-                                                });
-                                            }, 600);
-                                        });
-                                    }} type="button" className="sign-in__create-account global__hoverButton--secondary">create an account</button>
-                                </section>
-                            </form>)}           
+            <div className="global__wrapper">
+                <div className="container">
+                    {this.props.user.token ? <Redirect push to="/home" /> : null}
+                    {this.state.createAccount ? <Redirect push to="/create-an-account" /> : null }
+                    <Transition in={this.props.isLoading} timeout={0} appear={true}>
+                        { state => (
+                            <Spinner transitionStyles={transitionStyles} state={state} />
+                        )}
                     </Transition>
+                    <div className="row">
+                        <Transition in={this.state.display} timeout={0} appear={true}>
+                        {state => (
+                            <form id="sign-in-form" className="container global__card sign-in__card" style={{
+                                    ...transitionStyles[state]
+                                }}>
+                                    <div className="container">
+                                        <section className="row sign-in__center sign-in__title--container">
+                                            <h3 className={this.props.isError ? "sign-in__title error" : "sign-in__title"}>To Do</h3>
+                                        </section>
+                                        {this.props.isError ? (
+                                            <section className="row">
+                                                <p className="sign-in__error-message">{this.props.errorMessage}</p>
+                                            </section>) : 
+                                        null}
+                                        <section className="row">
+                                            <div className="sign-in__center">
+                                                <InputText label="email" onKeyDown={this.submitLogin} onChange={this.onEmail} />
+                                            </div>
+                                        </section>
+                                        <section className="row">
+                                            <div className="sign-in__center">
+                                                <InputText label="password" onKeyDown={this.submitLogin} onChange={this.onPassWord} password/>
+                                            </div>
+                                        </section>
+                                        <section className="row">
+                                        {this.state.clickAllowed ? (
+                                            <button className="sign-in__button" type="button" onClick={() => this.props.login(this.state.email, this.state.password)}>Sign In</button>
+                                        ) : (
+                                            <button className="sign-in__button" type="button" disabled>Sign In</button>
+                                        )}
+                                        </section>
+                                    </div>
+                                    <section className="sign-in__create-account-container">
+                                        <button onClick={() => {
+                                            this.setState({
+                                                display: false
+                                            }, () => {
+                                                setTimeout(() => {
+                                                    this.setState({
+                                                        createAccount: true
+                                                    });
+                                                }, 500);
+                                            });
+                                        }} type="button" className="sign-in__create-account global__hoverButton--secondary">create an account</button>
+                                    </section>
+                                </form>)}           
+                        </Transition>
+                    </div>
                 </div>
             </div>
         )
