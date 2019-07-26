@@ -3,7 +3,6 @@ import ToDo from './ToDo';
 import ToDoStore from '../../../store/ToDos/ToDoStore';
 import { connect } from 'react-redux';
 import { Transition } from 'react-transition-group';
-import { deleteToDo } from '../../../store/ToDos/function';
 
 const ToDoContainer = ({todo, saveToDo, deleteToDo}) => {
 

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ToDoStore from '../../store/ToDos/ToDoStore';
 import './Home.css';
-import CategoryWrapper from '../Category/CategoryWrapper';
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import AddMenu from '../../component/addMenu/AddMenu';
 import InputText from '../../component/InputText/InputText';
 import ToDoList from '../../component/ToDoList/ToDoList';
 
