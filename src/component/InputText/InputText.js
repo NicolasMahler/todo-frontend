@@ -48,6 +48,7 @@ class InputText extends Component {
                         id={this.props.label} 
                         className="input-text__input" 
                         onChange={(e) => {this.props.onChange(e); this.onChange(e) } }
+                        onKeyDown={this.props.onKeyDown}
                         type={this.props.password ? "password" : "text"} 
                         onFocus={e => this.onFocus(e)} 
                         onBlur={e => this.onBlur(e)} />
