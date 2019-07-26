@@ -47,6 +47,10 @@
     transform: scale(1) translateX(150px)
   }
 
+  90% {
+    transform: scale(1.25) translateX(150px)
+  }
+
   100% {
     transform: scale(1.25) translateX(150px)
   }
@@ -63,7 +67,7 @@
   }
 
   50% {
-    transform: translateX(-175px);
+    transform: translateX(-170px);
   }
 
   100% {
@@ -82,12 +86,16 @@
     transform: scale(1.25) translateX(-150px)
   }
 
-  15% {
+  17% {
     transform: scale(1) translateX(-150px)
   }
 
   70% {
     transform: scale(1) translateX(-150px)
+  }
+
+  90% {
+    transform: scale(1.25) translateX(-150px);
   }
 
   100% {
