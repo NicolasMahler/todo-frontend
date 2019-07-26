@@ -11,9 +11,11 @@ const ToDoList = ({getTodos, todos}) => {
     }, []);
 
     return (
-        <TransitionGroup>
-            {todos.map(todo => (<ToDoContainer key={todo.id} todo={todo} />))}
-        </TransitionGroup>
+        <div className="todo__listWrapper">
+            <TransitionGroup>
+                {todos.map(todo => (<ToDoContainer key={todo.id} todo={todo} />))}
+            </TransitionGroup>
+        </div>
     );
 
 }
