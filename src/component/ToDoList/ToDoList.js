@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import ToDoContainer from './ToDo/ToDoContainer';
 import { connect } from 'react-redux';
 import ToDoStore from '../../store/ToDos/ToDoStore';
