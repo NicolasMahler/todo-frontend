@@ -31,7 +31,7 @@ ReactDOM.render(
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={SignIn} />
-                    <Route path="/index.html" component={SignIn} />
+                    <Route path="/todo.html" component={SignIn} />
                     <Route path="/sign-in" component={SignIn} />
                     <Route path="/create-an-account" component={CreateAccount} />
                     <Route path="/home" component={Home} />
