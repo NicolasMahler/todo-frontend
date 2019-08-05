@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ToDo from './ToDo';
 import ToDoStore from '../../../store/ToDos/ToDoStore';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Transition } from 'react-transition-group';
 
-const ToDoContainer = ({todo, saveToDo, deleteToDo}) => {
+const ToDoContainer = ({todo, updateToDo, deleteToDo}) => {
 
+    const dispatch = useDispatch();
     const [transition, setTransition] = useState(false);
     const token = localStorage.getItem('token');
     const transitionStyles = {
@@ -19,16 +20,17 @@ const ToDoContainer = ({todo, saveToDo, deleteToDo}) => {
         setTransition(true);
     }, []);
 
-    function onChange(todo, completed, id) {
-        saveToDo(token, {todo, completed, id});
+    const onChange = (todo, completed, id) => {
+        dispatch(ToDoStore.updateToDo(token, {todo, completed, id}));
     }
     
-    function onDelete(id) {
-        deleteToDo(token, id);
+    const onDelete = () => {
+        setTransition(false);
+        setTimeout(() => dispatch(ToDoStore.deleteToDo(token, todo.id)), 500);
     }
 
-    function onCompleted(id, completed) {
-        saveToDo(token, { id, completed });
+    const onCompleted = (id, completed, todo) => {
+        dispatch(ToDoStore.updateToDo(token, { id, completed, todo }));
     }
 
     return (
@@ -41,18 +43,4 @@ const ToDoContainer = ({todo, saveToDo, deleteToDo}) => {
 
 };
 
-
-const mapStateToProps = state => {
-    return {
-        todos: state.todoReducer.todos,
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        saveToDo: (token, todo) => dispatch(ToDoStore.editToDo(token, todo)),
-        deleteToDo: (token, id) => dispatch(ToDoStore.deleteToDo(token, id))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToDoContainer);
+export default ToDoContainer;
