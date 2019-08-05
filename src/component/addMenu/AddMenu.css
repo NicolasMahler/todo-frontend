@@ -22,7 +22,7 @@ h1 {
 
 .menu-item,
 .menu-open-button {
-      background:var(--red);
+      background:var(--primary);
       border-radius: 100%;
       width: 80px;
       height: 80px;
@@ -47,7 +47,7 @@ h1 {
       width: 25px;
       height: 3px;
       border-radius: 8px;
-      background: white;
+      background: var(--background-light);
       display: block;
       position: absolute;
       top: calc(50% - 1.5px);
@@ -104,7 +104,7 @@ h1 {
 
 .menu-item:hover {
       transition-duration: 200ms !important;
-      background: white;
+      background: var(--background-light);
       color: black;
 }
 
