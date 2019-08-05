@@ -5,27 +5,35 @@ function ToDo({todo, onChange, onDelete, style, onCompleted}) {
 
     const [text, setText] = useState(todo.todo);
     const [completed, setCompleted] = useState(todo.completed);
-    const [edit, setEdit] = useState(false);
 
     const completedOnChange = (event) => {
         setCompleted(event.target.checked);
-        onCompleted(todo.id, event.target.checked);
+        onCompleted(todo.id, event.target.checked, text);
     }
 
     const textOnChange = (event) => {
+        onChange(event.target.value, completed, todo.id);
         setText(event.target.value);
-    }
-
-    const editOnChange = (event) => {
-        if (!event.target.checked) {
-            onChange(text, completed, todo.id);
-        }
-        setEdit(event.target.checked);
     }
 
     return (
         <form className="todo__container" style={style}>
-            <input contentEditable className="todo__textInput" type="text" name="todo" id={"todo" + todo.id} onChange={textOnChange} value={text} disabled={!edit}/>
+            <input hidden 
+                type="checkbox" 
+                name={"complete" + todo.id} 
+                className="todo__complete" id={"complete" + todo.id} 
+                onChange={completedOnChange} 
+                checked={completed} />
+            <label className="todo__label" htmlFor={"complete" + todo.id}></label>
+            <div className="todo__strikeThrough">
+                <input className="todo__textInput" 
+                    type="text" 
+                    name="todo-text" 
+                    id={"text" + todo.id} 
+                    onChange={textOnChange}     
+                    value={text} />
+            </div>
+            <i className="fa fa-trash todo__delete" onClick={() => onDelete(todo.id)}></i>
         </form>
     )
 
