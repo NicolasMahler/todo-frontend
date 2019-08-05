@@ -8,7 +8,7 @@
 .sign-in__card img {
     width: 75px;
     height: auto;
-    background-color: white;
+    background: var(--background-light);
 }
 
 .sign-in__center {
@@ -33,18 +33,25 @@
 }
 
 .sign-in__button {
-    background-color: var(--primary-light);
+    background-color: var(--background-light);
     color: white;
     border: 0;
-    border-radius: 500px;
+    border-radius: 8px;
     cursor: pointer;
     padding: 5px 15px;
     margin: 15px auto 15px;
     transition: all 0.4s;
+    border-bottom: 4px solid var(--primary);
+}
+
+@media (max-width: 450px) {
+    .sign-in__button {
+        margin-bottom: 30px;
+    }
 }
 
 .sign-in__button:disabled {
-    background-color: lightgray;
+    border-bottom: 4px solid darkgray;
     cursor: auto;
     z-index: 1;
 }
@@ -54,12 +61,11 @@
 }
 
 .sign-in__button:enabled:hover {
-    box-shadow: 3px 3px 6px rgba(148, 148, 148, 0.966);
-    background-color: var(--primary);
+    background: var(--background-lightest);
 }
 
 .sign-in__buton:active {
-    box-shadow: 1px 1px 3px rgba(148, 148, 148, 0.966);
+    box-shadow: 1px 1px 3px rgba(2, 2, 2, 0.756);
     background-color: var(--primary);
 }
 
@@ -90,6 +96,7 @@
 .sign-in__create-account {
     border-radius: 8px;
     text-decoration: none;
+    border-bottom: 4px solid var(--primary);
 }
 
 .sign-in__create-account:hover {

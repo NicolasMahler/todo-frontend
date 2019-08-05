@@ -1,3 +1,7 @@
+.input-text__container {
+    margin-bottom: 15px;
+}
+
 .input-text__label {
     transition: transform 0.3s;
     position: relative;
@@ -23,10 +27,11 @@
     border: 0;
     border-bottom: 1px solid gray;
     transition: 0.3s all;
+    color: white;
 }
 
 .input-text__container:hover .input-text__input {
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--primary);
 }
 
 .input-text__input:placeholder-shown {
@@ -47,13 +52,13 @@
 
 .input-text__container:hover::after {
     width: 250px;
-    background-color: var(--red);
+    background-color: var(--primary);
 }
 
 .input-text__container:focus-within::after, .input-text__container:focus-within:hover::after, .input-text__container:valid:hover::after {
     width: 250px;
     color: red;
-    background-color:var(--red);
+    background-color:var(--primary);
 }
 
 .input-text__underline {
@@ -70,16 +75,16 @@
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
     transform: scale(0.8);
-    color: var(--red);
+    color: var(--primary);
 }
 
 .input-text__label__active ~ .input-text__underline {
     width: 250px;
-    background-color:var(--red);
+    background-color:var(--primary);
     top: 3px;
 }
 
 .input-text__label__active + .input-text__input {
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--primary);
 }
 

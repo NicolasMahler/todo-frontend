@@ -6,6 +6,7 @@
   height: 600px;
   -webkit-filter: url("#goo");
   filter: url("#goo");
+  pointer-events: none;
 }
 
 .ball {
@@ -26,7 +27,7 @@
   left: -10px;
   transform: translateY(-50%) translateX(5%);
   border-radius: 100%;
-  background: var(--red);
+  background: var(--background-light);
 }
 
 .ball-1 {

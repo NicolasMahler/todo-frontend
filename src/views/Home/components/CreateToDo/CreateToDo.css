@@ -1,0 +1,56 @@
+.createToDo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.createToDo__input {
+    position: relative;
+    font-size: 21px;
+    height: 48px;
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    padding: 0 15px;
+    margin-left: 58px;
+    margin-right: 15px;
+    border-bottom: 4px solid var(--primary);
+    background: var(--background-light);
+    color: white;
+}
+
+.createToDo__button {
+    border: 0;
+    border-bottom: 4px solid var(--primary);
+    border-radius: 8px;
+    background: var(--background-light);
+    color: var(--primary);
+    height: 48px;
+    width: 48px;
+    line-height: 48px;
+    font-size: 32px;
+    transition: 0.3s all;
+    text-align: center;
+    cursor: pointer;
+}
+
+.createToDo__button:hover {
+    background: var(--background-light);
+    color: white;
+    transform: scale(1.1);
+}
+
+@media (max-width: 500px) {
+    .createToDo {
+        width: 100%;
+    }
+
+    .createToDo__input {
+        margin-left: 0;
+        width: calc(100% - calc(48px + 15px));
+    }
+
+    .createToDo__button {
+    }
+}

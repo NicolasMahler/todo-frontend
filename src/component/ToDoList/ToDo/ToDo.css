@@ -1,36 +1,50 @@
-.todo__listWrapper {
-}
-
-.todo__listWrapper:after {
-    content: '';
-    background: linear-gradient(-25deg, var(--red) 0%, #eccc6d 100%);
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    mix-blend-mode: screen;
-    pointer-events: none;
-  }
-
 .todo__container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 15px;
     transition: 01s opacity;
 }
 
 .todo__label {
-    padding: 0 5px;
-    font-size: 32px;
-    color: var(--red);
+    position: relative;
+    border-bottom: 4px solid var(--primary);
+    height: 48px;
+    width: 48px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s transform, 0.3s color;
+    transition: 0.3s all;
+    margin: 0;
+    margin-right: 15px;
+    background: var(--background-light);
 }
 
-#completed:checked+.todo__label {
-    color: green;
-    padding: 0 2px;
+.todo__complete:checked+.todo__label {
+    border-bottom: 4px solid var(--primary);
+}
+
+.todo__label::after {
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 12.5px;
+    border-radius: 0 0 2px 0;
+    left: calc(50% - 6.25px);
+    top: calc(50% - 15px);
+    transform: rotate(45deg);
+    transition: 0.3s all;
+    border-bottom: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
+.todo__label:hover::after {
+    border-bottom: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);
+}
+
+.todo__complete:checked+.todo__label::after {
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
 }
 
 .todo__label:hover {
@@ -39,22 +53,58 @@
 
 .todo__textInput {
     position: relative;
-    font-size: 32px;
+    font-size: 21px;
     width: 100%;
     border: 0;
     border-radius: 8px;
     padding: 0 15px;
-    background: black;
+    border-bottom: 4px solid var(--primary);
+    box-sizing: border-box;
+    height: 48px;
     color: white;
+    background: var(--background-light);
 }
 
-#completed:checked~.todo__textInput {
-    text-decoration: line-through;
+.todo__strikeThrough {
+    position: relative;
+    width: 100%;
+}
+
+.todo__strikeThrough::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 15px;
+    height: 1px;
+    width: 0;
+    background: white;
+    transition: 0.3s width cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.todo__complete:checked~.todo__strikeThrough::after {
+    width: calc(100% - 30px);
+    transition: 0.3s width cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .todo__delete {
     border: 0;
     background: transparent;
     font-size: 32px;
-    color: var(--red);
+    color: var(--primary);
+    border-radius: 8px;
+    margin-left: 15px;
+    transition: 0.3s all;
+    height: 48px;
+    width: 48px;
+    text-align: center;
+    line-height: 48px;
+    cursor: pointer;
+    background: var(--background-light);
+    border-bottom: 4px solid var(--primary);
+}
+
+.todo__delete:hover {
+    background: var(--background-light);
+    color: white;
+    transform: scale(1.1);
 }

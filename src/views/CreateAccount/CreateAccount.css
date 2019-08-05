@@ -2,11 +2,10 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .create-account__card {
-    height: 350px;
+    min-height: 350px;
     margin-top: 150px;
     position: relative;
     width: 700px;
@@ -18,10 +17,11 @@
 .create-account__title {
     text-align: center;
     margin: 0 auto 25px;
-    color: var(--red);
+    color: var(--primary);
 }
 
 .create-account__sign-in {
+    border-bottom: 4px solid var(--primary);
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -33,19 +33,26 @@
 }
 
 .create-account__button {
-    background-color: var(--primary-light);
+    background-color: var(--background-light);
     color: white;
     border: 0;
-    border-radius: 500px;
+    border-radius: 8px;
+    border-bottom: 4px solid var(--primary);
     cursor: pointer;
     padding: 5px 15px;
-    margin: 15px auto 0;
+    margin: 15px auto 0px;
     transition: all 0.4s;
 }
 
+@media (max-width: 450px) {
+    .create-account__button {
+        margin-bottom: 15px;
+    }
+}
+
 .create-account__button:disabled {
-    background-color: lightgray;
-    cursor: auto;
+    cursor: not-allowed;
+    border-bottom: 4px solid darkgray;
     z-index: 1;
 }
 
@@ -54,11 +61,14 @@
 }
 
 .create-account__button:enabled:hover {
-    box-shadow: 3px 3px 6px rgba(148, 148, 148, 0.966);
-    background-color: var(--primary);
+    background-color: var(--background-lightest);
 }
 
 .create-account__buton:active {
     box-shadow: 1px 1px 3px rgba(148, 148, 148, 0.966);
     background-color: var(--primary);
+}
+
+.create-account__inputTextContainer {
+    margin-bottom: 25px;
 }
