@@ -2,57 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ToDoStore from '../../store/ToDos/ToDoStore';
 import './Home.css';
-import InputText from '../../component/InputText/InputText';
+import CreateToDo from './components/CreateToDo/CreateToDo';
 import ToDoList from '../../component/ToDoList/ToDoList';
 
 class Home extends Component {
-    constructor() {
-        super();
-        this.state = {
-            todo: '',
-            visible: 'all'
-        }
-        this.toDo = this.toDo.bind(this);
-        this.createToDo = this.createToDo.bind(this);
-    }
-
-    toDo(e) {
-        this.setState({
-            todo: e.target.value
-        });
-    }
-
-    createToDo() {
-        this.props.createToDo(this.props.user.token, this.state.todo);
+    componentDidMount() {
+        this.props.getTodos(localStorage.getItem('token'));
     }
 
     render() {
         return (
-            <React.Fragment>
             <div className="container home__container">
+                <CreateToDo />
                 <ToDoList />
-                <div style={{display: 'flex', justifyContent: 'center'}}>
-                <InputText label="ToDo" onChange={this.toDo} />
-                <button type="button" onClick={this.createToDo}>Create</button>
-                </div>
             </div>
-            </React.Fragment>
         )
-    }
-};
-
-const mapStateToProps = state => {
-    return {
-        user: state.userReducer.user,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getTodos: (token) => dispatch(ToDoStore.getTodos(token)),
-        createToDo: (token, todo) => dispatch(ToDoStore.createToDo(token, todo)),
-        deleteToDo: (token, id) => dispatch(ToDoStore.deleteToDo(token, id)),
+        getTodos: (token) => dispatch(ToDoStore.getTodos(token))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(null, mapDispatchToProps)(Home);
