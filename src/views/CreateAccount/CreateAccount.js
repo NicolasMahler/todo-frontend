@@ -100,46 +100,52 @@ class CreateAccount extends Component {
                     <form id="createAnAccount" className="container global__card create-account__card" style={{
                                 ...transitionStyles[state]
                             }}>
-                        <section className="row">
-                            <h3 className="create-account__title">Create An Account</h3>
-                        </section>
-                        {this.state.error ? (
+                        <div className="container">
                             <section className="row">
-                                <p className="create-account__error-message">{this.state.errorMessage}</p>
-                            </section>) : 
-                        null}
-                        <section className="row">
-                            <div className="create-account__center">
-                                <InputText label="Email" onChange={this.onEmail} />
-                                <InputText label="Password" onChange={this.onPassWord} password />
-                            </div>
-                        </section>
-                        <section className="row">
-                            <div className="create-account__center">
-                                <InputText label="First&nbsp;Name" onChange={this.onFirstName} />
-                                <InputText label="Last&nbsp;Name" onChange={this.onLastName} optional />
-                            </div>
-                        </section>
-                        <section className="row">
-                        {this.state.clickAllowed ? (
-                            <button className="create-account__button" type="button" onClick={this.callCreateUser}>Create Account</button>
-                        ) : (
-                            <button className="create-account__button" type="button" disabled>Create Account</button>
-                        )}
-                        </section>
-                        <section className="create-account__sign-in-container">
-                            <button onClick={() => {
-                                        this.setState({
-                                            display: false
-                                        }, () => {
-                                            setTimeout(() => {
-                                                this.setState({
-                                                    login: true
-                                                });
-                                            }, 500);
-                                        });
-                                    }} type="button" className="create-account__sign-in global__hoverButton--secondary">Sign In</button>
-                        </section>
+                                <h3 className="create-account__title">Create An Account</h3>
+                            </section>
+                            {this.state.error ? (
+                                <section className="row">
+                                    <p className="create-account__error-message">{this.state.errorMessage}</p>
+                                </section>) : 
+                            null}
+                            <section className="row">
+                                <div className="create-account__center global__flexContainer">
+                                    <div className="create-account__inputTextContainer">
+                                        <InputText label="Email" onChange={this.onEmail} />
+                                    </div>
+                                    <div className="create-account__inputTextContainer">
+                                        <InputText label="Password" onChange={this.onPassWord} password />
+                                    </div>
+                                    <div className="create-account__inputTextContainer">
+                                        <InputText label="First&nbsp;Name" onChange={this.onFirstName} />
+                                    </div>
+                                    <div className="create-account__inputTextContainer">
+                                        <InputText label="Last&nbsp;Name" onChange={this.onLastName} optional />
+                                    </div>
+                                </div>
+                            </section>
+                            <section className="row">
+                            {this.state.clickAllowed ? (
+                                <button className="create-account__button" type="button" onClick={this.callCreateUser}>Create Account</button>
+                            ) : (
+                                <button className="create-account__button" type="button" disabled>Create Account</button>
+                            )}
+                            </section>
+                            <section className="create-account__sign-in-container">
+                                <button onClick={() => {
+                                            this.setState({
+                                                display: false
+                                            }, () => {
+                                                setTimeout(() => {
+                                                    this.setState({
+                                                        login: true
+                                                    });
+                                                }, 500);
+                                            });
+                                        }} type="button" className="create-account__sign-in global__hoverButton--secondary">Sign In</button>
+                            </section>
+                        </div>
                     </form>)}
                     </Transition>
                 </div>
