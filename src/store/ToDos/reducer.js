@@ -51,17 +51,15 @@ export default function todoReducer(state = initState, action) {
                 createErrorMessage: action.errorMessage
             }
         case (actions.CREATE_TODO):
-            let createToDos = state.todos.concat(action.todo);
+            let createToDos = [action.todo, ...state.todos];
             return {
                 ...state,
                 todos: createToDos
             }
         case (actions.DELETE_TODO):
-            
             let deleteToDos = state.todos.filter(todo => {
-                return action.id.id !== todo.id
+                return action.id !== todo.id
             });
-
             return {
                 ...state,
                 todos: deleteToDos
@@ -74,7 +72,6 @@ export default function todoReducer(state = initState, action) {
                 }
                 return todo;
             });
-
             return {
                 ...state,
                 todos: updatedList
