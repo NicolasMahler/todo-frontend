@@ -9,7 +9,6 @@ export default class ToDoStore {
             queries.TOKEN_QUERY(queries.TOP_LEVEL_TODOS(), token)
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 if (!response.data.errors) {
                     dispatch(functions.todoDoneLoading());
                     dispatch(functions.todos(response.data.topLevelToDos));
@@ -18,7 +17,6 @@ export default class ToDoStore {
                 }
             })
             .catch(error => {
-                console.log(error, 'todo error');
                 dispatch(functions.todoErrorLoading('Oops! Something went wrong'));
             })
         }
@@ -29,7 +27,6 @@ export default class ToDoStore {
             queries.TOKEN_QUERY(queries.CREATE_TODO(todo), token)
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 if (!response.data.errors) {
                     dispatch(functions.createDoneLoading());
                     dispatch(functions.createToDo(response.data.createToDo));
@@ -38,36 +35,39 @@ export default class ToDoStore {
                 }
             })
             .catch(error => {
-                console.log(error, 'create error');
                 dispatch(functions.createErrorLoading('Oops! Something went Wrong'))
             });
         }
     }
     static deleteToDo(token, id) {
+
         return dispatch => {
             queries.TOKEN_QUERY(queries.DELETE_TODO(id), token)
             .then(response => response.json())
             .then(response => {
-                if (!response.data.errors) {
-                    dispatch(functions.deleteToDo(response.data.deleteToDo,id));
+                if (!response.errors) {
+                    dispatch(functions.deleteToDo(response.data.deleteToDo.id));
                 }
             })
         }
     }
 
-    static editToDo(token, todo) {
-        console.log(todo);
+    static updateToDo(token, todo) {
         return dispatch => {
             queries.TOKEN_QUERY(queries.UPDATE_TODO(todo), token)
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 if (!response.data.errors) {
                     dispatch(functions.updateToDo(response.data.updateToDo));
+                } else {
+                    console.log({...todo, complete: !todo.complete})
+                    dispatch(functions.updateToDo({...todo, completed: !todo.complete}));
                 }
             })
             .catch(error => {
                 console.log(error);
+                console.log({...todo, complete: !todo.complete})
+               dispatch(functions.updateToDo({...todo, completed: !todo.complete}));
             })
         }
     }
