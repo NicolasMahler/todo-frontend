@@ -63,19 +63,9 @@ export const DELETE_TODO = (id) => {
 }
 
 export const UPDATE_TODO = (todo) => {
-    return todo.todo ?
-    `mutation {
+    return `mutation {
     updateToDo(id: "${todo.id}", data: {
             todo: "${todo.todo}",
-            completed: ${todo.completed}
-        }) {
-            id,
-            todo,
-            completed
-        }
-    }` :
-    `mutation {
-    updateToDo(id: "${todo.id}", data: {
             completed: ${todo.completed}
         }) {
             id,
