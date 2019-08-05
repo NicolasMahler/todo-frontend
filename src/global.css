@@ -1,5 +1,8 @@
 :root {
     --text-blue: black;
+    --background: #1d2630;
+    --background-light: #253241;
+    --background-lightest: #3e556f;
     --primary: #BB4430;
     --primary-light: #d9624e;
     --primary-dark: #9d2612;
